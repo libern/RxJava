@@ -20,7 +20,7 @@ import io.reactivex.rxjava3.annotations.NonNull;
  * @param <T> the value type
  */
 @FunctionalInterface
-public interface Consumer<@NonNull T> {
+public interface Consumer<T> {
     /**
      * Consume the given value.
      * @param t the value

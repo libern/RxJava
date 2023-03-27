@@ -99,7 +99,7 @@ import io.reactivex.rxjava3.schedulers.*;
  * @see Flowable
  * @see io.reactivex.rxjava3.observers.DisposableObserver
  */
-public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+public abstract class Observable<T> implements ObservableSource<T> {
 
     /**
      * Mirrors the one {@link ObservableSource} in an {@link Iterable} of several {@code ObservableSource}s that first either emits an item or sends

@@ -21,22 +21,22 @@ ext {
     guavaVersion = "31.1-jre"
 }
 
-def releaseTag = System.getenv("BUILD_TAG")
-if (releaseTag != null && !releaseTag.isEmpty()) {
-    if (releaseTag.startsWith("v")) {
-        releaseTag = releaseTag.substring(1)
-    }
-    project.version = releaseTag
-
-    logger.lifecycle("Releasing with version: " + project.version)
-}
+//def releaseTag = System.getenv("BUILD_TAG")
+//if (releaseTag != null && !releaseTag.isEmpty()) {
+//    if (releaseTag.startsWith("v")) {
+//        releaseTag = releaseTag.substring(1)
+//    }
+//    project.version = releaseTag
+//
+//    logger.lifecycle("Releasing with version: " + project.version)
+//}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    signature "org.codehaus.mojo.signature:java18:1.0@signature"
+//    signature "org.codehaus.mojo.signature:java18:1.0@signature"
 
     api "org.reactivestreams:reactive-streams:$reactiveStreamsVersion"
     jmh "org.reactivestreams:reactive-streams:$reactiveStreamsVersion"
@@ -175,42 +175,42 @@ checkstyle {
     ]
 }
 
-if (project.hasProperty("releaseMode")) {
-    logger.lifecycle("ReleaseMode: {}", project.releaseMode)
-
-  /*
-  if ("branch" == project.releaseMode) {
-
-    if (version.endsWith("-SNAPSHOT")) {
-      publishing {
-        repositories {
-          maven {
-             url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-          }
-        }
-      }
-
-      mavenPublish {
-        nexus {
-          stagingProfile = "io.reactivex"
-        }
-      }
-    }
-  }
-  */
-
-  if ("full" == project.releaseMode) {
-    /*signing {
-      if (project.hasProperty("SIGNING_PRIVATE_KEY") && project.hasProperty("SIGNING_PASSWORD")) {
-         useInMemoryPgpKeys(project.getProperty("SIGNING_PRIVATE_KEY"), project.getProperty("SIGNING_PASSWORD"))
-      }
-    }*/
-
-    mavenPublish {
-      nexus {
-        stagingProfile = "io.reactivex"
-      }
-    }
-
-  }
-}
+//if (project.hasProperty("releaseMode")) {
+//    logger.lifecycle("ReleaseMode: {}", project.releaseMode)
+//
+//  /*
+//  if ("branch" == project.releaseMode) {
+//
+//    if (version.endsWith("-SNAPSHOT")) {
+//      publishing {
+//        repositories {
+//          maven {
+//             url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+//          }
+//        }
+//      }
+//
+//      mavenPublish {
+//        nexus {
+//          stagingProfile = "io.reactivex"
+//        }
+//      }
+//    }
+//  }
+//  */
+//
+//  if ("full" == project.releaseMode) {
+//    /*signing {
+//      if (project.hasProperty("SIGNING_PRIVATE_KEY") && project.hasProperty("SIGNING_PASSWORD")) {
+//         useInMemoryPgpKeys(project.getProperty("SIGNING_PRIVATE_KEY"), project.getProperty("SIGNING_PASSWORD"))
+//      }
+//    }*/
+//
+//    mavenPublish {
+//      nexus {
+//        stagingProfile = "io.reactivex"
+//      }
+//    }
+//
+//  }
+//}
